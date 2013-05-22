@@ -11,6 +11,9 @@
 
 ?>
 <form action="submit.php" method="post" id="timeForm">
-	<input type="submit" class="submit" value="Submit Time"/>
+	<input type="text" name="dataInput">
+	<input type="submit" class="add" value="Add Value" />
+	<input type="submit" class="delete" value="Delete Value" />
+	<input type="submit" class="destroy" value="Destroy Session" />
 </form>
 <div class="status"></div>
