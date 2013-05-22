@@ -15,13 +15,18 @@ $doc->addScript('//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js');
 
 $js = <<<JS
 (function ($) {
-	$(document).on("submit", function () {
-		var now = Date();
+	$(document).on("click", "input", function () {
+		var value  = $('input[name="dataInput"]').val();
+		var action = $(this).attr('class');
 		$.ajax({
 			type   : 'POST',
-			data   : "option=com_ajax&group=session&time=" + now + "&format=json",
+			data   : "option=com_ajax&group=session&"+ action + "=" + value + "&format=json",
 			success: function (response) {
-				$(".status").html(response);
+				if(action != "destroy"){
+					$(".status").html(response);
+				} else {
+					$(".status").html('');
+				}
 			}
 		});
 		return false;
