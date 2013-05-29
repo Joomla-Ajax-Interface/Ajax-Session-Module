@@ -14,4 +14,16 @@
 		<folder>tmpl</folder>
 	</files>
 
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="arrayName"
+				       type="text"
+				       default="times"
+				       label="Session Array Name"
+				       description=""/>
+			</fieldset>
+		</fields>
+	</config>
+
 </extension>
