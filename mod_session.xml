@@ -11,6 +11,7 @@
 	<description>A Joomla Ajax session module</description>
 	<files>
 		<filename module="mod_session">mod_session.php</filename>
+		<filename>helper.php</filename>
 		<folder>tmpl</folder>
 	</files>
 

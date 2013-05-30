@@ -20,7 +20,7 @@ $js = <<<JS
 		var action = $(this).attr('class');
 		$.ajax({
 			type   : 'POST',
-			data   : "option=com_ajax&group=session&"+ action + "=" + value + "&format=json",
+			data   : "option=com_ajax&module=session&"+ action + "=" + value + "&format=debug",
 			success: function (response) {
 				if(action != "destroy"){
 					$(".status").html(response);
