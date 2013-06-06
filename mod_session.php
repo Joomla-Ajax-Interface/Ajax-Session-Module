@@ -13,6 +13,8 @@ $doc = JFactory::getDocument();
 
 $doc->addScript('//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js');
 
+$mode = $params->get('mode', 'module');
+
 $js = <<<JS
 (function ($) {
 	$(document).on("click", "input", function () {
@@ -20,7 +22,7 @@ $js = <<<JS
 		var action = $(this).attr('class');
 		$.ajax({
 			type   : 'POST',
-			data   : "option=com_ajax&group=session&"+ action + "=" + value + "&format=json",
+			data   : "option=com_ajax&{$mode}=session&" + action + "=" + value + "&format=debug",
 			success: function (response) {
 				if(action != "destroy"){
 					$(".status").html(response);

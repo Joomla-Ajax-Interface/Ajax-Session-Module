@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module"
-         version="2.5"
-         method="upgrade">
+           version="2.5"
+           method="upgrade">
 	<name>Ajax Session</name>
 	<creationDate>May 22, 2013</creationDate>
 	<author>Matt Thomas</author>
@@ -11,7 +11,23 @@
 	<description>A Joomla Ajax session module</description>
 	<files>
 		<filename module="mod_session">mod_session.php</filename>
+		<filename>helper.php</filename>
 		<folder>tmpl</folder>
 	</files>
+
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="mode"
+				       type="list"
+				       default="module"
+				       label="Ajax Mode"
+				       description="">
+					<option value="module">Module</option>
+					<option value="plugin">Plugin</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
 
 </extension>
