@@ -31,20 +31,15 @@ class modSessionHelper {
 			$data = JRequest::getVar('data');
 
 			switch ($cmd) {
-				case "add":
-					if (!in_array($data, $_SESSION[$node])) {
-						$_SESSION[$node][] = $data;
+				case "add" :
+					if (!isset($_SESSION[$node][$data])) {
+						$_SESSION[$node][$data] = $data;
 					}
 					break;
 
-				case "delete":
-					if (in_array($data, $_SESSION[$node])) {
-						foreach ($_SESSION[$node] as $key => $value) {
-							if ($data == $value) {
-								unset($_SESSION[$node][$key]);
-							}
-						}
-						$_SESSION[$node] = array_values($_SESSION[$node]);
+				case "delete" :
+					if (isset($_SESSION[$node][$data])) {
+						unset($_SESSION[$node][$data]);
 					}
 					break;
 
@@ -52,7 +47,6 @@ class modSessionHelper {
 					session_destroy();
 					break;
 
-				// cmd=debug, not to be confused with format=debug
 				case "debug" :
 					die('<pre>' . print_r($_SESSION[$node], TRUE) . '</pre>');
 					break;
