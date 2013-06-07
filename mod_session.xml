@@ -7,11 +7,55 @@
 	<author>Matt Thomas</author>
 	<authorUrl>http://betweenbrain.com</authorUrl>
 	<copyright>Copyright (C) 2013 betweenbrain llc. All rights reserved.</copyright>
-	<version>0.1</version>
-	<description>A Joomla Ajax session module</description>
+	<license>GNU General Public License version 2, or later.</license>
+	<version>1.5.1</version>
+	<description>MOD_SESSION_DESC</description>
+
 	<files>
 		<filename module="mod_session">mod_session.php</filename>
+		<filename>helper.php</filename>
 		<folder>tmpl</folder>
 	</files>
+
+	<languages>
+		<language tag="en-GB">language/en-GB/en-GB.mod_session.ini</language>
+	</languages>
+
+	<params>
+		<param name="format"
+		       type="list"
+		       default="debug"
+		       label="MOD_SESSION_FORMAT_LABEL"
+		       description="MOD_SESSION_FORMAT_DESC">
+			<option value="debug">Debug</option>
+			<option value="raw">Raw</option>
+			<option value="json">JSON</option>
+		</param>
+
+		<param name="loadJquery"
+		       type="list"
+		       default="1"
+		       label="MOD_SESSION_LOAD_JQUERY_LABEL"
+		       description="MOD_SESSION_LOAD_JQUERY_DESC">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+
+
+		<param name="mode"
+		       type="list"
+		       default="module"
+		       label="MOD_SESSION_MODE_LABEL"
+		       description="MOD_SESSION_MODE_DESC">
+			<option value="module">Module</option>
+			<option value="plugin">Plugin</option>
+		</param>
+
+		<param name="node"
+		       type="text"
+		       default="data"
+		       label="MOD_SESSION_NODE_LABEL"
+		       description="MOD_SESSION_NODE_DESC"/>
+	</params>
 
 </install>
