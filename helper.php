@@ -19,11 +19,12 @@ class modSessionHelper {
 		$params = new JRegistry();
 		$params->loadString($module->params);
 		$node = $params->get('node', 'data');
+		$session = JFactory::getSession();
+		$sessionData = $session->get($node);
 
-		session_start();
-
-		if (!isset($_SESSION[$node])) {
-			$_SESSION[$node] = array();
+		if ($sessionData === '') {
+			$sessionData = array();
+			$session->set($node, $sessionData);
 		}
 
 		if (JRequest::getVar('cmd')) {
@@ -32,7 +33,7 @@ class modSessionHelper {
 
 			switch ($cmd) {
 				case "add" :
-					if (!isset($_SESSION[$node][$data])) {
+					if (!isset($sessionData[$data])) {
 						$_SESSION[$node][$data] = $data;
 					}
 					break;
