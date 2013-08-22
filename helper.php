@@ -20,7 +20,9 @@ class modSessionHelper {
 		$params->loadString($module->params);
 		$node = $params->get('node', 'data');
 
-		session_start();
+		if(session_id() == '') {
+			session_start();
+		}
 
 		if (!isset($_SESSION[$node])) {
 			$_SESSION[$node] = array();
