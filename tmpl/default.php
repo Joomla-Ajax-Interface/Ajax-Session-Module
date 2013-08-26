@@ -12,8 +12,8 @@
 ?>
 <form>
 	<input type="text" name="data">
-	<input type="submit" class="add" value="Add Value" />
-	<input type="submit" class="delete" value="Delete Value" />
-	<input type="submit" class="destroy" value="Destroy Session" />
+	<input type="submit" class="add" value="<?php echo JText::_('MOD_SESSION_INPUT_ADD') ?>" />
+	<input type="submit" class="delete" value="<?php echo JText::_('MOD_SESSION_INPUT_DELETE') ?>" />
+	<input type="submit" class="destroy" value="<?php echo JText::_('MOD_SESSION_INPUT_DESTROY') ?>" />
 </form>
 <div class="status"></div>

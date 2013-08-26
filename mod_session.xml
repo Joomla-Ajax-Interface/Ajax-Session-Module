@@ -43,16 +43,6 @@
 					<option value="0">No</option>
 				</field>
 
-
-				<field name="mode"
-				       type="list"
-				       default="module"
-				       label="MOD_SESSION_MODE_LABEL"
-				       description="MOD_SESSION_MODE_DESC">
-					<option value="module">Module</option>
-					<option value="plugin">Plugin</option>
-				</field>
-
 				<field name="node"
 				       type="text"
 				       default="data"
