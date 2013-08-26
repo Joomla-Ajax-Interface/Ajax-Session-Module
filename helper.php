@@ -22,7 +22,7 @@ class modSessionHelper {
 		$session     = JFactory::getSession();
 		$sessionData = $session->get($node);
 
-		if ($sessionData === '') {
+		if (is_null($sessionData)) {
 			$sessionData = array();
 			$session->set($node, $sessionData);
 		}
@@ -47,7 +47,8 @@ class modSessionHelper {
 					break;
 
 				case "destroy" :
-					session_destroy();
+					$sessionData = NULL;
+					$session->set($node, $sessionData);
 					break;
 
 				case "debug" :
