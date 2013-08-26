@@ -18,14 +18,13 @@ class modSessionHelper {
 		$module = JModuleHelper::getModule('session');
 		$params = new JRegistry();
 		$params->loadString($module->params);
-		$node = $params->get('node', 'data');
+		$node        = $params->get('node', 'data');
+		$session     = JFactory::getSession();
+		$sessionData = $session->get($node);
 
-		if(session_id() == '') {
-			session_start();
-		}
-
-		if (!isset($_SESSION[$node])) {
-			$_SESSION[$node] = array();
+		if ($sessionData === '') {
+			$sessionData = array();
+			$session->set($node, $sessionData);
 		}
 
 		if (JRequest::getVar('cmd')) {
@@ -34,14 +33,16 @@ class modSessionHelper {
 
 			switch ($cmd) {
 				case "add" :
-					if (!isset($_SESSION[$node][$data])) {
-						$_SESSION[$node][$data] = $data;
+					if (!isset($sessionData[$data])) {
+						$sessionData[$data] = $data;
+						$session->set($node, $sessionData);
 					}
 					break;
 
 				case "delete" :
-					if (isset($_SESSION[$node][$data])) {
-						unset($_SESSION[$node][$data]);
+					if (isset($sessionData[$data])) {
+						unset($sessionData[$data]);
+						$session->set($node, $sessionData);
 					}
 					break;
 
@@ -50,13 +51,13 @@ class modSessionHelper {
 					break;
 
 				case "debug" :
-					die('<pre>' . print_r($_SESSION[$node], TRUE) . '</pre>');
+					die('<pre>' . print_r($sessionData, TRUE) . '</pre>');
 					break;
 			}
 
-			if ($_SESSION[$node]) {
+			if ($sessionData) {
 
-				return $_SESSION[$node];
+				return $sessionData;
 			}
 
 			return FALSE;
