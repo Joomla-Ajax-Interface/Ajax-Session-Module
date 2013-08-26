@@ -34,7 +34,7 @@ class modSessionHelper {
 
 			switch ($cmd) {
 				case "add" :
-					if (!isset($sessionData[$data])) {
+					if (!isset($sessionData[$data]) && $data != '') {
 						$sessionData[$data] = $data;
 						$session->set($node, $sessionData);
 					}
@@ -58,7 +58,6 @@ class modSessionHelper {
 			}
 
 			if ($sessionData) {
-
 				return $sessionData;
 			}
 
