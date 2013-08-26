@@ -15,6 +15,7 @@ class modSessionHelper {
 
 		// Get module parameters
 		jimport('joomla.application.module.helper');
+		$input  = JFactory::getApplication()->input;
 		$module = JModuleHelper::getModule('session');
 		$params = new JRegistry();
 		$params->loadString($module->params);
@@ -28,8 +29,8 @@ class modSessionHelper {
 		}
 
 		if (JRequest::getVar('cmd')) {
-			$cmd  = JRequest::getVar('cmd');
-			$data = JRequest::getVar('data');
+			$cmd  = $input->get('cmd');
+			$data = $input->get('data');
 
 			switch ($cmd) {
 				case "add" :
