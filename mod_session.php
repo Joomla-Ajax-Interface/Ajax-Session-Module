@@ -16,7 +16,6 @@ require_once __DIR__ . '/helper.php';
 $doc = JFactory::getDocument();
 
 $loadJquery = $params->get('loadJquery', 1);
-$mode       = $params->get('mode', 'module');
 $format     = $params->get('format', 'debug');
 
 // Load jQuery
@@ -31,11 +30,12 @@ $js = <<<JS
 			action  = $(this).attr('class'),
 			request = {
 					'option' : 'com_ajax',
-					'{$mode}': 'session',
+					'module' : 'session',
 					'cmd'    : action,
 					'data'   : value,
 					'format' : '{$format}'
 				};
+			console.log(request);
 		$.ajax({
 			type   : 'POST',
 			data   : request,

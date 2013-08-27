@@ -41,16 +41,6 @@
 			<option value="0">No</option>
 		</param>
 
-
-		<param name="mode"
-		       type="list"
-		       default="module"
-		       label="MOD_SESSION_MODE_LABEL"
-		       description="MOD_SESSION_MODE_DESC">
-			<option value="module">Module</option>
-			<option value="plugin">Plugin</option>
-		</param>
-
 		<param name="node"
 		       type="text"
 		       default="data"
