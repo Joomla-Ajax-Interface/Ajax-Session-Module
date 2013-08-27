@@ -28,7 +28,7 @@ class modSessionHelper {
 			$session->set($node, $sessionData);
 		}
 
-		if (JRequest::getVar('cmd')) {
+		if ($input->get('cmd')) {
 			$cmd  = $input->get('cmd');
 			$data = $input->get('data');
 
