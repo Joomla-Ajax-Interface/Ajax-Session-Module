@@ -39,12 +39,26 @@ $js = <<<JS
 			type   : 'POST',
 			data   : request,
 			success: function (response) {
-				if(action != 'destroy'){
-					$('.status').html(response);
+				console.log(response);
+				if(response.data){
+					var result = '';
+					$.each(response.data, function (index, value) {
+						result = result + ' ' + value;
+					});
+
+					$('.status').html(result);
 				} else {
-					$('.status').html('');
+					$('.status').html(response);
 				}
-			}
+			},
+			error: function(response) {
+				var data = '',
+					obj = $.parseJSON(response.responseText);
+				for(key in obj){
+					data = data + ' ' + obj[key] + '<br/>';
+				}
+				$('.status').html(data);
+	        }
 		});
 		return false;
 	});
