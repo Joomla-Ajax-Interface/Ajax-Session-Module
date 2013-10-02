@@ -31,7 +31,7 @@ $js = <<<JS
 			action  = $(this).attr('class'),
 			request = {
 					'option' : 'com_ajax',
-					'module' : 'session',
+					'module' : 'session_underscore',
 					'cmd'    : action,
 					'data'   : value,
 					'format' : '{$format}'
@@ -68,4 +68,4 @@ JS;
 
 $doc->addScriptDeclaration($js);
 
-require(JModuleHelper::getLayoutPath('mod_session'));
+require(JModuleHelper::getLayoutPath('mod_session_underscore'));

@@ -9,14 +9,14 @@
  * License    GNU General Public License version 2, or later.
  */
 
-class modSessionHelper {
+class modSessionUnderscoreHelper {
 
 	public static function getAjax() {
 
 		// Get module parameters
 		jimport('joomla.application.module.helper');
 		$input  = JFactory::getApplication()->input;
-		$module = JModuleHelper::getModule('session');
+		$module = JModuleHelper::getModule('session_underscore');
 		$params = new JRegistry();
 		$params->loadString($module->params);
 		$node        = $params->get('node', 'data');

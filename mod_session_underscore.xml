@@ -2,7 +2,7 @@
 <extension type="module"
            version="2.5"
            method="upgrade">
-	<name>Ajax Session</name>
+	<name>Ajax Session Underscore</name>
 	<creationDate>June 7, 2013</creationDate>
 	<author>Matt Thomas</author>
 	<authorUrl>http://betweenbrain.com</authorUrl>
@@ -12,7 +12,7 @@
 	<description>MOD_SESSION_DESC</description>
 
 	<files>
-		<filename module="mod_session">mod_session.php</filename>
+		<filename module="mod_session_underscore">mod_session_underscore.php</filename>
 		<filename>helper.php</filename>
 		<folder>tmpl</folder>
 	</files>
