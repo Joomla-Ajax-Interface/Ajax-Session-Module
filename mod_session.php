@@ -40,17 +40,42 @@ $js = <<<JS
 			type   : 'POST',
 			data   : request,
 			success: function (response) {
-				console.log(response);
-				if(response.data){
-					var result = '';
-					$.each(response.data, function (index, value) {
-						result = result + ' ' + value;
-					});
 
-					$('.status').html(result);
-				} else {
-					$('.status').html(response);
+				switch (Object.prototype.toString.call(response)){
+
+					case '[object Object]':
+						console.log('JSON response:', response);
+
+						var result = '';
+						$.each(response, function (index, value) {
+							result = result + ' ' + value;
+						});
+
+						$('.status').html(result);
+						break;
+
+					case '[object String]':
+
+						console.log('String response:', response);
+
+						if(response.length){
+							$('.status').html(response);
+						} else{
+							$('.status').html('No Data');
+						}
+						break;
+
+					case '[object Boolean]':
+
+						console.log('Boolean response:', response);
+
+						$('.status').html('No Data');
+						break;
+
+					default :
+					$('.status').html('No Data');
 				}
+
 			},
 			error: function(response) {
 				var data = '',
